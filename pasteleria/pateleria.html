@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de cuenta</title>
+  <link rel="stylesheet" href=".css/style.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="">cuenta</a>
+    <a href=""></a>
+  </div>
+
+  <!-- nombre con logo-->
+  <div class="logo-container">
+    <img src="img/logoPasteleria.png" alt="logo_Pasteleria" width="80">
+    <h1 class="empresa-nombre">Pasteleria 100 Sabores</h1>
+  </div>
+
+  <!-- formulario -->
+  <div class="form-container">
+    <h2>Crear cuenta</h2>
+    <form action="login.html" method="post">
+      <!-- Nombre completo -->
+      <label for="nombre">Nombre completo</label><br>
+      <input type="text" id="nombre" placeholder="Tu nombre"><br><br>
+
+      <!-- correo -->
+      <label for="email">Correo electrónico</label><br>
+      <input type="email" id="email" placeholder="ejemplo@gmail.com"><br><br>
+
+      <!-- edad -->
+      <label for="edad">Edad</label><br>
+      <input type="number" id="edad" placeholder="Tu edad"><br><br>
+
+      <!-- código de descuento -->
+      <label for="codigo">Código de descuento</label><br>
+      <input type="text" id="codigo" placeholder="Escribe un código"><br><br>
+
+      <!-- contraseña -->
+      <label for="password">Contraseña</label><br>
+      <input type="password" id="password" placeholder="********"><br><br>
+
+      <!-- repetir contraseña -->
+      <label for="password2">Repetir contraseña</label><br>
+      <input type="password" id="password2" placeholder="********"><br><br>
+
+      <button type="submit">Registrarme</button>
+    </form>
+    <p class="nota">
+      Si usas tu correo institucional recibirás una torta gratis 🎂
+    </p>
+  </div>
+
+  <script>
+    function mensaje_descuento(e){
+      e.preventDefault();
+
+      var correo = document.getElementById("email").value;
+      var edad = document.getElementById("edad").value;
+      var codigo = document.getElementById("codigo").value;
+
+      var mensaje = "";
+
+      if (correo.indexOf("@duocuc.cl") != -1) {
+        mensaje = mensaje + "Tienes una torta gratis\n";
+      }
+
+      if (edad >= 50) {
+        mensaje = mensaje + "Tienes un 50% de descuento\n";
+      }
+
+      if (codigo == "felices 50") {
+        mensaje = mensaje + "Tienes un 10% de descuento\n";
+      }
+
+      if (mensaje == "") {
+        mensaje = "No tienes beneficios";
+      }
+
+      alert(mensaje);
+    }
+  </script>
+
+</body>
+</html>
